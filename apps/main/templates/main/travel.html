@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "main/reviewerbase.html"%}
+{% block body_block %}
+
+
+<h3>{{travel.destination}}</h3>
+<h5>Added by: {{travel.created_by.first_name}} {{travel.created_by.last_name}}</h5>
+<h5>Date added: {{travel.created_at}}</h5>
+<br>
+<div class="col-xs-8">
+  <h4>Users who added this product/item under their wish list:</h4>
+  <ul>
+    {% for joiner in users_joined %}
+      <li>{{joiner.first_name}} {{joiner.last_name}}</li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% extends "main/reviewerbase.html"%}
+{% block body_block %}
+
+<div class="container">
+  
+  <h3>Hello {{user_in_session}}!</h3>
+  <br>
+  <h4>Your Wish List:</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Added by</th>
+        <th>Date added</th>
+        <th>Action</th>
+      </tr>  
+    </thead>  
+    <tbody>
+      {% for travel in my_travels %}
+        <tr>
+          <td><a href="/travel/{{travel.id}}"><p>{{travel.destination}}</p></a></td>
+          <td>{{travel.created_by.first_name}} {{travel.created_by.last_name}}</td>
+          <td>{{travel.created_at}}</td>
+          <td><a href="/travel/delete/{{travel.id}}"><p>Delete</p></td>
+        </tr>
+      {% endfor %}
+      {% for travel in joined_travels %}
+      <tr>
+        <td><a href="/travel/{{travel.id}}"><p>{{travel.destination}}</p></a></td>
+        <td>{{travel.created_by.first_name}} {{travel.created_by.last_name}}</td>
+        <td>{{travel.created_at}}</td>
+        <td><a href="/travel/unjoin/{{travel.id}}/{{user_id_in_session}}"><p>Remove from my Wishlist</p></td>
+      </tr>
+    {% endfor %}    
+      
+    </tbody>
+  </table>  
+  
+<br>
+
+  <h4>Other User's Wish List: </h4>
+  <br>
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Added by</th>
+        <th>Date added</th>
+        <th>Action</th>
+      </tr>  
+    </thead>
+    <tbody>
+      {% for travel in all_travels %}
+        {% if user_id_in_session != travel.created_by.id %}
+        <tr>
+          <td><a href="/travel/{{travel.id}}"><p>{{travel.destination}}</p></a></td>
+          <td>{{travel.created_by.first_name}} {{travel.created_by.last_name}}</td>
+          <td>{{travel.created_at}}</td>
+          <td><a href="/travel/join/{{travel.id}}/{{user_id_in_session}}"><p>Add to my Wish List</p></td>
+        </tr>
+        {% endif %}
+      {% endfor %}
+      </tbody>
+  </table>
+</div>
+
+
+{% endblock %}

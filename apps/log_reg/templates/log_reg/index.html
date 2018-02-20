@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends "log_reg/base.html"%}
+  {% block body_block %}
+      <div class="jumbotron">
+        <h2 class="display-3">Wish List</h2>
+        <p>Welcome to Wish List App!</p>
+        <p><a class="btn btn-primary btn-lg" href="/login" role="button">Login Now &raquo;</a></p>
+      </div>
+
+        <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Sign-up Users</h2>
+          <p>
+            Using this app, you can sing-up users for the application.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h2>Create Your Products</h2>
+          <p>
+            Users will be able to create products to be added to their custom wish list.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h2>Edit Your Wish List</h2>
+          <p>
+            Users can view other user's wish list and edit their own list with products from other users' lists.
+          </p>
+        </div>
+      </div>
+
+      {% endblock %}

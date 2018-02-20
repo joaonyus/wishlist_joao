@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends "main/reviewerbase.html"%}
+{% block body_block %}
+
+<h3>Create a new wish list item:</h3>
+{% if messages %}
+<div class="alert alert-danger" role="alert">
+  {% for message in messages %}
+  <ul>
+    <li>{{message}}</li>
+  </ul>
+  {% endfor %}
+</div>
+{% endif %}
+
+<form action="/travel/post/{{user_id}}" method="POST">
+  {% csrf_token %}
+
+  <div class="form-group">
+    <label>Item/Product:</label>
+    <input type="text" class="form-control" name="destination">
+  </div>
+  <div>
+    <button type="submit" class="btn btn-primary" name="add_travel">Add</button>
+  </div>  
+</form>
+
+{% endblock %}

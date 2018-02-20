@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% extends "main/reviewerbase.html"%}
+{% block body_block %}
+<div class="row" style="margin-bottom:100px;">
+<h2>User: {{user}}</h2>
+<h3>Name: {{first_name}} {{last_name}}</h3>
+<h3>Total trips: {{reviews}}</h3>
+<h3>Scheduled trips:</h3>
+  <ul>
+    {% for book in books%}
+    <li><a href="/books/{{book.book.id}}">{{book.book.title}}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}

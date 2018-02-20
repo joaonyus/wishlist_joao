@@ -1,0 +1,19 @@
+table{
+    width: 80%;
+    border: 1px solid black;
+    margin-bottom: 25px;
+}
+thead {
+    background-color: lightskyblue;
+    text-indent: 5px;
+}
+tbody {
+    text-align: left;
+    text-indent: 5px;
+}
+tbody > tr:nth-child(even){
+    background-color: lightgray;
+}
+th, td, tr {
+    height: 15px;
+}
